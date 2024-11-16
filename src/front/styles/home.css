@@ -1,7 +1,168 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.home {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+/* Seccion destacada */
+.hero-section {
+    background-image: url('https://previews.dropbox.com/p/thumb/ACdX7cy1aYNzfvQ2ZJ2CW1Bo0Ai0x1SQH843T6aBvs4Dqg_sq4cJ_24IBu46FCUCGGLO3Z8RdR4nchvsupsQljyd5W1bDLjqoP2WrHzTlZcBuNdJHwGPYO4JIOXF34HCtKdbdPyD18wCZVQY6jBqIqjNT0IfM5LhXw3ce2sp7cG7GT6-KxVFZE4kHUPEBLYDVhKYSn37sMrgFO7A_7TpjsqCoQph6fjLLnETj5427il_bxOhROBwV2GSQ65FyvYOYFjjExYwkIj8nQahO7yUgth08Ik-lAmBg4sIgroeAFUgBOwUMLRgpoWbdZWRolv0jBkJtQ8ArlUHMS64j1szZADF/p.jpeg?is_prewarmed=true');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden; /*Ocultar cualquier contenido que salga del area*/
+}
+
+.hero-text {
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-explore {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077b6; 
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-explore:hover {
+    background-color: #005f8a;
+}
+
+/* Info Section */
+.info-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.info-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #0077b6;
+}
+
+.info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /*Espacio entre tarjetas*/
+}
+
+.info-card {
+    flex: 1 1 calc(30% - 20px); /*Cada tarjeta ocupa un tercio del ancho menos el espacio entre ellas*/
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px); /*Desplaza la tarjeta hacia arriba*/
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Gallery Section */
+.gallery-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #0077b6;
+}
+
+.vehicle-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.vehicle-card {
+    flex: 1 1 calc(30% - 20px); /* Cada tarjeta ocupa un tercio del ancho menos el espacio entre ellas*/
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /*Efecto suave al pasar el raton*/
+    text-align: center;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-10px); /*Desplaza la tarjeta hacia arriba*/
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.vehicle-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #0077b6;
+}
+
+.vehicle-card p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .info-card, .vehicle-card {
+        flex: 1 1 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .btn-explore {
+        padding: 8px 15px;
+    }
+}
