@@ -1,54 +1,55 @@
-const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+const getState = ({ getStore, setStore }) => {
+    return {
+        store: {
+            isAuthenticated: false,
+            user: null,
+        },
+        actions: {
+            login: (user) => {
+                setStore({ isAuthenticated: true, user });
+                console.log("Inicio de sesión exitoso", user);
+            },
 
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+            logout: async () => {
+                try {
+                    const response = await fetch("https://ideal-guacamole-v6pq4wxxw5w4hrxj-3001.app.github.dev/api/logout", {
+                        method: "POST",
+                        credentials: "include", // Asegura que las cookies se gestionen correctamente
+                    });
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+                    if (response.ok) {
+                        setStore({ isAuthenticated: false, user: null });
+                        console.log("Cierre de sesión exitoso");
+                    } else {
+                        console.error("Error al cerrar sesión");
+                    }
+                } catch (error) {
+                    console.error("Error al conectar con el backend para cerrar sesión:", error);
+                }
+            },
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
-	};
+            syncAuth: async () => {
+                try {
+                    const response = await fetch("https://ideal-guacamole-v6pq4wxxw5w4hrxj-3001.app.github.dev/api/session-info", {
+                        method: "GET",
+                        credentials: "include", // Asegura que las cookies de sesión se envíen
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        setStore({ isAuthenticated: true, user: data }); // Almacena directamente el usuario
+                        console.log("Sesión sincronizada", data);
+                    } else {
+                        setStore({ isAuthenticated: false, user: null });
+                        console.log("No hay sesión activa");
+                    }
+                } catch (error) {
+                    console.error("Error al sincronizar sesión:", error);
+                    setStore({ isAuthenticated: false, user: null });
+                }
+            },
+        },
+    };
 };
 
 export default getState;

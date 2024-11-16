@@ -1,11 +1,10 @@
-/* Contenedor principal */
 .inicio-container {
     text-align: center;
     padding: 20px;
     font-family: "Poppins", sans-serif;
   }
   
-  /* Títulos */
+  
   .inicio-container h1 {
     color: #0c2a40;
     margin-bottom: 10px;
@@ -16,7 +15,6 @@
     margin-top: 30px;
   }
   
-  /* Párrafos */
   .inicio-container p {
     font-size: 18px;
     color: #555;
@@ -24,7 +22,7 @@
   
   
   .requisitos ul {
-    list-style-type: none;
+    list-style-type: none; /*Eliminar puntos del listado*/
     padding: 0;
     margin: 0 auto;
     text-align: left;
