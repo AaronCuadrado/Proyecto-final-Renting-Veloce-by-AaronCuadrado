@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar/navbar.css";
 import logo from "../../img/VELOCE.png";
-import { ModalRegister } from "../component/ModalRegister";
-import { ModalLogin } from "../component/ModalLogin";
+import { ModalRegister } from "../../component/ModalRegister";
+import { ModalLogin }  from "../../component/ModalLogin";
 
 export const Navbar = () => {
     const [showRegisterModal, setShowRegisterModal] = useState(false);
