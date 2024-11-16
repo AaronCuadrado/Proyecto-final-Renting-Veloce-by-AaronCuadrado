@@ -1,0 +1,94 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-logo img {
+    height: 70px;
+    object-fit: contain;
+}
+
+/* Hamburger icon */
+.hamburger-icon {
+    font-size: 24px;
+    color: #003366; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hamburger-icon:hover {
+    color: #007bff; 
+}
+
+/* Dropdown menu */
+.hamburger-dropdown {
+    position: absolute;
+    top: 60px; 
+    right: 20px;
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado entre enlaces */
+}
+
+/* Links inside the dropdown */
+.hamburger-dropdown .navbar-link {
+    color: #003366; 
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hamburger-dropdown .navbar-link:hover {
+    background-color: #e6f2ff; 
+    color: #007bff; 
+}
+
+/* Close dropdown animation */
+.hamburger-dropdown {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
