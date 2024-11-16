@@ -12,7 +12,7 @@ import { Profile } from "./pages/Profile.js";
 import { Reserve } from "./pages/Reserve.js";
 import { Cancel } from "./pages/Cancel.js";
 import { Success } from "./pages/Success.js";
-import { Geeks } from "./pages/Geeks.js";
+import  Geeks  from "./pages/Geeks.js";
 
 const Layout = () => {
    const { store } = useContext(Context);
