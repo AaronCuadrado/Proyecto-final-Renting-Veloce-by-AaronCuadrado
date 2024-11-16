@@ -1,0 +1,60 @@
+/* Contenedor principal */
+.inicio-container {
+    text-align: center;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Títulos */
+  .inicio-container h1 {
+    color: #0c2a40;
+    margin-bottom: 10px;
+  }
+  
+  .inicio-container h2 {
+    color: #0c2a40;
+    margin-top: 30px;
+  }
+  
+  /* Párrafos */
+  .inicio-container p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  
+  .requisitos ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: left;
+    display: inline-block;
+  }
+  
+  .requisitos ul li {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .requisitos ul ul {
+    margin-left: 20px; 
+  }
+  
+  .requisitos ul ul li {
+    font-size: 14px;
+  }
+  
+  .boton-container button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0c2a40;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .boton-container button:hover {
+    background-color: #094065;
+  }
+  
