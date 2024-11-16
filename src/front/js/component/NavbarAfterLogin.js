@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import "../../styles/navbar/navbarAfter.css";
-import logo from "../../img/logo1.png";
+import logo from "../../img/VELOCE.png";
 import { Context } from "../store/appContext";
 
 export const NavbarAfterLogin = () => {

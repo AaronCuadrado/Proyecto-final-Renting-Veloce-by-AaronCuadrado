@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/home/home.css";
+import "../../styles/home.css";
 import giulia from "../../img/alfaromeo.jpg";
 import mustang from "../../img/darkhorse.jpg";
 import mercedes from "../../img/mercedes.jpg";
@@ -41,19 +41,19 @@ export const Home = () => {
                 <h2>Vehiculos Destacados</h2>
                 <div className="vehicle-cards">
                     <div className="vehicle-card">
-                        <img src={giulia} alt="giulia" />
-                        <h3>Alfa Romeo Giulia</h3>
-                        <p>Desde 90€/dia</p>
+                        <img src={mercedes} alt="giulia" />
+                        <h3>Mercedes-Benz Clase G</h3>
+                        <p>Desde 101,63€/dia</p>
                     </div>
                     <div className="vehicle-card">
-                        <img src={mercedes} alt="mustang" />
-                        <h3>Ford Mustang</h3>
-                        <p>Desde 120€/dia</p>
+                        <img src={giulia} alt="mustang" />
+                        <h3>Alfa Romeo Giulia</h3>
+                        <p>Desde 48,40€/dia</p>
                     </div>
                     <div className="vehicle-card">
                         <img src={mustang} alt="panamera" />
-                        <h3>Porsche Panamera</h3>
-                        <p>Desde 250€/dia</p>
+                        <h3>Ford Mustang Dark Horse</h3>
+                        <p>Desde 47,13€/dia</p>
                     </div>
                 </div>
             </div>

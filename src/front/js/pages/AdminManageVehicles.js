@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/admin/adminManageVehicles.css";
+import "../../styles/admin/adminManageVehicle.css";
 
 export const AdminManageVehicles = () => {
     const [vehicles, setVehicles] = useState([]);
