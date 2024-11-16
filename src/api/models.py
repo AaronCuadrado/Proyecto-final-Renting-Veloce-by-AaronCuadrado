@@ -87,7 +87,6 @@ class Booking(db.Model):
     end_date = db.Column(db.DateTime, nullable=False)
     status = db.Column(db.String(50), default="pending")
     payment_completed = db.Column(db.Boolean, default=False)
-    maintenance_booked = db.Column(db.Boolean, default=False)
     total_amount = db.Column(db.Float, nullable=False)
 
     #Serializar los datos de la reserva
@@ -100,6 +99,5 @@ class Booking(db.Model):
             "end_date": self.end_date,
             "status": self.status,
             "payment_completed": self.payment_completed,
-            "maintenance_booked": self.maintenance_booked,
             "total_amount": self.total_amount,
         }
