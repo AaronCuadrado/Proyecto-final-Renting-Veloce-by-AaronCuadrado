@@ -7,10 +7,7 @@ const Inicio = () => {
 
   return (
     <div className="inicio-container">
-      <h1>¡Gracias por visitar Veloce Rent!</h1>
-      <p>Gracias a 4Geeks Academy por todo</p>
-
-    
+      <h1>¡Gracias a 4Geeks Academy por todo!</h1>
       <div className="requisitos">
         <h2>Requisitos Mínimos del Proyecto</h2>
         <ul>

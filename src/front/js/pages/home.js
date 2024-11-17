@@ -43,17 +43,17 @@ export const Home = () => {
                     <div className="vehicle-card">
                         <img src={mercedes} alt="giulia" />
                         <h3>Mercedes-Benz Clase G</h3>
-                        <p>Desde 101,63€/dia</p>
+                        <p>Desde 117€/dia</p>
                     </div>
                     <div className="vehicle-card">
                         <img src={giulia} alt="mustang" />
                         <h3>Alfa Romeo Giulia</h3>
-                        <p>Desde 48,40€/dia</p>
+                        <p>Desde 67€/dia</p>
                     </div>
                     <div className="vehicle-card">
                         <img src={mustang} alt="panamera" />
                         <h3>Ford Mustang Dark Horse</h3>
-                        <p>Desde 47,13€/dia</p>
+                        <p>Desde 64€/dia</p>
                     </div>
                 </div>
             </div>
