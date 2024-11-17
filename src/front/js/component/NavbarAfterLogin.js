@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import "../../styles/navbar/navbarAfter.css";
 import logo from "../../img/VELOCE.png";
@@ -21,8 +21,7 @@ export const NavbarAfterLogin = () => {
             if (response.ok) {
                 console.log("Sesión cerrada exitosamente");
                 actions.logout();
-                setShowHamburgerMenu(false);
-                navigate("/");
+                navigate("/home");
             } else {
                 console.error("Error al cerrar sesión");
             }
