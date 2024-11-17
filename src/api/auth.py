@@ -126,3 +126,50 @@ def session_info():
         if user:
             return jsonify(user.serialize()), 200
     return jsonify({"error": "Sesión no iniciada"}), 404
+
+# Ruta para solicitar cambio de contraseña
+@auth.route('/forgot-password', methods=['POST'])
+def forgot_password():
+    data = request.get_json()
+    email = data.get('email')
+    # Buscar al usuario en la bdd
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        return jsonify({"error": "Usuario no encontrado"}), 404
+    
+    # Generar token de restablecimiento de contraseña
+    user.generate_reset_token()
+    db.session.commit()
+
+    reset_url = f"https://vigilant-system-pj7pv9xx997pf97x5-3000.app.github.dev/reset-password/{user.reset_token}"
+    
+    msg = Message('Solicitud de restablecimiento de contraseña',
+                  sender='email@ejemplo.com',
+                  recipients=[email])
+    msg.body = f"Haz clic en el siguiente enlace para restablecer la contraseña: {reset_url}"
+    mail.send(msg)
+
+    return jsonify({"message": "Se ha enviado un correo para restablecer la contraseña"}), 200
+
+# Ruta para restablecer la contraseña usando el token generado
+@auth_routes.route('/reset-password/<token>', methods=['POST'])
+def reset_password(token):
+    # Obtener la nueva contraseña enviada en la solicitud
+    data = request.get_json()
+    new_password = data.get('password')
+
+    # Buscar al usuario en la base de datos usando el token
+    user = User.query.filter_by(reset_token=token).first()
+
+    # Verificar si el token es válido
+    if not user:
+        return jsonify({"error": "Token inválido o expirado"}), 400
+
+    # Actualizar la contraseña del usuario
+    hashed_password = generate_password_hash(new_password)
+    user.password_hash = hashed_password
+    user.reset_token = None
+    db.session.commit()
+
+    return jsonify({"message": "La contraseña se ha restablecido correctamente"}), 200

@@ -2,6 +2,8 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 # werkzeug.security es un modulo de werkzeug para trabajar con contraseñas de manera mas segura
+import random
+import string
 
 db = SQLAlchemy()
 
@@ -17,7 +19,7 @@ db = SQLAlchemy()
 
 # primary_key=True: Define una clave primaria para identificar registros únicos.
 # unique=True: Garantiza que no se repitan valores en la columna.
-# nullable=False: Indica que no se permiten valores nulos (vacíos).
+# nullable=False: Indica que no se permiten valores nulos (vacios).
 # default=value: Define un valor predeterminado para la columna.
 
 class User(db.Model):
@@ -31,6 +33,7 @@ class User(db.Model):
     registration_date = db.Column(db.DateTime, default=datetime.utcnow)
     bookings = db.relationship('Booking', backref='user', lazy=True)
     is_admin = db.Column(db.Boolean, default=False)
+    reset_token = db.Column(db.String(64), unique=True, nullable=True)
 
     # Metodo para establecer la contraseña encriptada
     def set_password(self, password):
@@ -42,6 +45,10 @@ class User(db.Model):
         # Verifica si la contraseña ingresada coincide con el hash almacenado
         return check_password_hash(self.password_hash, password)
     
+    # Metodo para generar un token de restablecimiento de contraseña
+    def generate_reset_token(self):
+        self.reset_token = ''.join(random.choices(string.ascii_letters + string.digits, k=64))
+        
     # Metodo para serializar los datos del usuario en un formato adecuado
     def serialize(self):
         return {
