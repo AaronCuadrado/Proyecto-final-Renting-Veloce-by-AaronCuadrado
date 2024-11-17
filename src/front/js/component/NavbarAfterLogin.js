@@ -6,12 +6,7 @@ import { Context } from "../store/appContext";
 
 export const NavbarAfterLogin = () => {
     const { store, actions } = useContext(Context); 
-    const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
     const navigate = useNavigate();
-
-    const toggleHamburgerMenu = () => {
-        setShowHamburgerMenu(!showHamburgerMenu);
-    };
 
     const handleLogout = async () => {
         try {
@@ -65,30 +60,15 @@ export const NavbarAfterLogin = () => {
                             </Link>
                         </>
                     )}
-                    <div className="hamburger-menu">
-                        <button
-                            className="hamburger-icon"
-                            onClick={toggleHamburgerMenu}
-                        >
-                            &#9776; {/*codigo para menu hamburguesa*/}
-                        </button>
-                        {showHamburgerMenu && (
-                            <div className="hamburger-dropdown">
-                                <Link to="/profile" className="navbar-link">
-                                    Mi Perfil
-                                </Link>
-                                <Link className="navbar-link">
-                                    Mis Reservas
-                                </Link>
-                                <button
-                                    className="navbar-link logout-button"
-                                    onClick={handleLogout}
-                                >
-                                    Cerrar Sesión
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                    <Link to="/profile" className="navbar-link">
+                         Mi Perfil
+                    </Link>
+                    <button
+                        className="navbar-link logout-button"
+                        onClick={handleLogout}
+                    >
+                        Cerrar Sesión
+                    </button>
                 </div>
             </div>
         </div>

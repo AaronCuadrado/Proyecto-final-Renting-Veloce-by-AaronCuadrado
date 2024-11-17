@@ -9,6 +9,7 @@
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    overflow: visible;
 }
 
 .navbar-container {
@@ -30,55 +31,7 @@
     object-fit: contain;
 }
 
-/* Hamburger icon */
-.hamburger-icon {
-    font-size: 24px;
-    color: #003366; 
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
 
-.hamburger-icon:hover {
-    color: #007bff; 
-}
-
-/* Dropdown menu */
-.hamburger-dropdown {
-    position: absolute;
-    top: 60px; 
-    right: 20px;
-    background-color: #ffffff; 
-    border: 1px solid #e0e0e0; 
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espaciado entre enlaces */
-}
-
-/* Links inside the dropdown */
-.hamburger-dropdown .navbar-link {
-    color: #003366; 
-    font-size: 16px;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.hamburger-dropdown .navbar-link:hover {
-    background-color: #e6f2ff; 
-    color: #007bff; 
-}
-
-/* Close dropdown animation */
-.hamburger-dropdown {
-    animation: slideDown 0.3s ease-out;
-}
 
 @keyframes slideDown {
     from {

@@ -10,7 +10,7 @@ export const ModalRegister = ({ onClose }) => {
     const [birthdate, setBirthdate] = useState("");
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState("");
-    const [isAdmin, setIsAdmin] = useState(false);
+    // const [isAdmin, setIsAdmin] = useState(false);
 
     // Valida el formulario antes de enviarlo
     const validateForm = () => {
@@ -51,7 +51,7 @@ export const ModalRegister = ({ onClose }) => {
                     email,
                     password,
                     birthdate,
-                    is_admin: isAdmin,
+                    // is_admin: isAdmin,
                 }),
             });
 
@@ -149,7 +149,7 @@ export const ModalRegister = ({ onClose }) => {
                             <span className="error-message">{errors.birthdate}</span>
                         )}
                     </div>
-                        {/* Checkbox para Administrador */}
+                        {/* Checkbox para Administrador
                         <div className="form-group">
                         <label>
                             <input
@@ -159,7 +159,7 @@ export const ModalRegister = ({ onClose }) => {
                             />
                             ¿Registrar como Administrador?
                         </label>
-                    </div>
+                        </div> */}
 
                     {/* Botón de Enviar */}
                     <button type="submit" className="btn-submit">
