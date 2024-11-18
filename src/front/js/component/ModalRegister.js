@@ -40,7 +40,7 @@ export const ModalRegister = ({ onClose }) => {
 
         try {
             // Realizar la solicitud al backend
-            const response = await fetch("https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/register", {
+            const response = await fetch("https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

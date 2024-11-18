@@ -12,7 +12,7 @@ const getState = ({ getStore, setStore }) => {
 
             logout: async () => {
                 try {
-                    const response = await fetch("https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/logout", {
+                    const response = await fetch("https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/logout", {
                         method: "POST",
                         credentials: "include", // Asegura que las cookies se gestionen correctamente
                     });
@@ -30,7 +30,7 @@ const getState = ({ getStore, setStore }) => {
 
             syncAuth: async () => {
                 try {
-                    const response = await fetch("https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/session-info", {
+                    const response = await fetch("https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/session-info", {
                         method: "GET",
                         credentials: "include", // Asegura que las cookies de sesión se envíen
                     });

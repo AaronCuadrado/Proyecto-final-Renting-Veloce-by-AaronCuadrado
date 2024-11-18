@@ -14,7 +14,7 @@ export const Vehicles = () => {
     useEffect(() => {
         const fetchVehicles = async () => {
             try {
-                const response = await fetch("https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/vehicles", {
+                const response = await fetch("https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/vehicles", {
                     method: "GET",
                 });
                 if (!response.ok) {

@@ -13,6 +13,7 @@ import { Reserve } from "./pages/Reserve.js";
 import { Cancel } from "./pages/Cancel.js";
 import { Success } from "./pages/Success.js";
 import  Geeks  from "./pages/Geeks.js";
+import {ForgotPassword } from './component/ForgotPassword.js';
 
 const Layout = () => {
    const { store } = useContext(Context);
@@ -33,6 +34,7 @@ const Layout = () => {
                         <Route element={<Reserve />} path="/reserve" />
                         <Route element={<Success />} path="/reserve-vehicle/success" />
                         <Route element={<Cancel />} path="/reserve-vehicle/cancel" />
+                        <Route element={<ForgotPassword />} path="/forgot-password" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

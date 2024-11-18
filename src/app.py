@@ -12,6 +12,7 @@ from api.transaction import transaction
 from api.reservations import reservations
 from api.auth import auth
 from flask_cors import CORS
+from flask_mail import Mail
 
 
 
@@ -62,6 +63,17 @@ app.config['SESSION_COOKIE_SECURE'] = True  # Requiere HTTPS
 
 
 Session(app)
+
+# Configuración SMTP para Mailjet
+app.config['MAIL_SERVER'] = 'in-v3.mailjet.com'   # Servidor SMTP de Mailjet
+app.config['MAIL_PORT'] = 587                    # Puerto para TLS
+app.config['MAIL_USE_TLS'] = True                # Usar TLS
+app.config['MAIL_USE_SSL'] = False               # No usar SSL
+app.config['MAIL_USERNAME'] = '681cc321f2703a8e6748689630dc2ad1'  # Clave de API
+app.config['MAIL_PASSWORD'] = 'df9830151e22c3820e441199e23ac132'  # Clave secreta
+app.config['MAIL_DEFAULT_SENDER'] = 'aaroncuadradotoral@gmail.com'    # Remitente autorizado
+
+mail = Mail(app)
 
 # Ejecutar la aplicación si se ejecuta directamente
 if __name__ == '__main__':

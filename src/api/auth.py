@@ -1,7 +1,8 @@
-from flask import Blueprint, request, jsonify, session
+from flask import Blueprint, request, jsonify, session, current_app
 from api.models import db, User, Vehicle
 from werkzeug.security import generate_password_hash
 from datetime import datetime
+from flask_mail import Message
 
 auth = Blueprint('auth', __name__)
 
@@ -142,18 +143,18 @@ def forgot_password():
     user.generate_reset_token()
     db.session.commit()
 
-    reset_url = f"https://vigilant-system-pj7pv9xx997pf97x5-3000.app.github.dev/reset-password/{user.reset_token}"
+    reset_url = f"https://orange-telegram-69v46wjjw5xwhprw-3000.app.github.dev/reset-password/{user.reset_token}"
     
     msg = Message('Solicitud de restablecimiento de contraseña',
-                  sender='email@ejemplo.com',
+                  sender='aaroncuadradotoral@gmail.com',
                   recipients=[email])
     msg.body = f"Haz clic en el siguiente enlace para restablecer la contraseña: {reset_url}"
-    mail.send(msg)
+    current_app.extensions['mail'].send(msg) 
 
     return jsonify({"message": "Se ha enviado un correo para restablecer la contraseña"}), 200
 
 # Ruta para restablecer la contraseña usando el token generado
-@auth_routes.route('/reset-password/<token>', methods=['POST'])
+@auth.route('/reset-password/<token>', methods=['POST'])
 def reset_password(token):
     # Obtener la nueva contraseña enviada en la solicitud
     data = request.get_json()

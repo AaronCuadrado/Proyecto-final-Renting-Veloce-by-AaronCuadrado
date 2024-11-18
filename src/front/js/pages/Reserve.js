@@ -43,7 +43,7 @@ export const Reserve = () => {
         setLoading(true);
         try {
             const response = await fetch(
-                "https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/reserve-vehicle",
+                "https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/reserve-vehicle",
                 {
                     method: "POST",
                     headers: {

@@ -11,7 +11,7 @@ export const NavbarAfterLogin = () => {
     const handleLogout = async () => {
         try {
             const response = await fetch(
-                "https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/logout",
+                "https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/logout",
                 {
                     method: "POST",
                     credentials: "include",

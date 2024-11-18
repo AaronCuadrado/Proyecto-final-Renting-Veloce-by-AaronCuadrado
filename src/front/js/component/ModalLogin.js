@@ -12,7 +12,7 @@ export const ModalLogin = ({ onClose }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch("https://vigilant-system-pj7pv9xx997pf97x5-3001.app.github.dev/api/login", {
+            const response = await fetch("https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -72,6 +72,11 @@ export const ModalLogin = ({ onClose }) => {
                         Iniciar Sesión
                     </button>
                 </form>
+                <div className="forgot-password">
+                    <button className="forgot-password-button" onClick={() => window.location.href = "/forgot-password"}>
+                        ¿Has olvidado tu contraseña?
+                    </button>
+                </div>
             </div>
         </div>
     );
