@@ -8,7 +8,7 @@ export const ForgotPassword = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/forgot-password", {
+            const response = await fetch("https://proyecto-final-renting-veloce-by.onrender.com/api/forgot-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),

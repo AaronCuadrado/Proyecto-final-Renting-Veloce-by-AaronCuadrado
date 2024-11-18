@@ -70,8 +70,8 @@ def reserve_vehicle():
             'quantity': 1,
         }],
         mode='payment',
-        success_url='https://orange-telegram-69v46wjjw5xwhprw-3000.app.github.dev/reserve-vehicle/success?booking_id=' + str(booking.id),
-        cancel_url='https://orange-telegram-69v46wjjw5xwhprw-3000.app.github.dev/reserve-vehicle/cancel',
+        success_url='https://proyecto-final-renting-veloce-by-54rh.onrender.com/reserve-vehicle/success?booking_id=' + str(booking.id),
+        cancel_url='https://proyecto-final-renting-veloce-by-54rh.onrender.com/reserve-vehicle/cancel',
         metadata={
             'user_id': session['user_id'],
             'booking_id': booking.id

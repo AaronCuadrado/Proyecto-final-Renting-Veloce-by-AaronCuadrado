@@ -11,7 +11,7 @@ export const NavbarAfterLogin = () => {
     const handleLogout = async () => {
         try {
             const response = await fetch(
-                "https://orange-telegram-69v46wjjw5xwhprw-3001.app.github.dev/api/logout",
+                "https://proyecto-final-renting-veloce-by.onrender.com/api/logout",
                 {
                     method: "POST",
                     credentials: "include",
