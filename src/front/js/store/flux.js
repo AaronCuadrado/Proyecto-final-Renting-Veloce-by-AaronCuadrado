@@ -1,4 +1,5 @@
 const getState = ({ getStore, setStore }) => {
+
     return {
         store: {
             isAuthenticated: false,
@@ -12,7 +13,7 @@ const getState = ({ getStore, setStore }) => {
 
             logout: async () => {
                 try {
-                    const response = await fetch("${BACKEND_URL}api/logout", {
+                    const response = await fetch(`${BACKEND_URL}/api/logout`, {
                         method: "POST",
                         credentials: "include", // Asegura que las cookies se gestionen correctamente
                     });
@@ -30,7 +31,7 @@ const getState = ({ getStore, setStore }) => {
 
             syncAuth: async () => {
                 try {
-                    const response = await fetch("${BACKEND_URL}api/session-info", {
+                    const response = await fetch(`${BACKEND_URL}/api/session-info`, {
                         method: "GET",
                         credentials: "include", // Asegura que las cookies de sesión se envíen
                     });

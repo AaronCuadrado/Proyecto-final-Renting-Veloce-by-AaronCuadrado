@@ -8,12 +8,12 @@ module.exports = merge(common, {
     output: {
         path: path.resolve(__dirname, 'build'), // Especifica la carpeta de salida
         filename: '[name].[contenthash].js',
-        publicPath: '/'
+        publicPath: '/',
     },
     plugins: [
         new Dotenv({
-            safe: true,
-            systemvars: true
-        })
-    ]
+            path: './.env',
+            systemvars: true,
+        }),
+    ],
 });

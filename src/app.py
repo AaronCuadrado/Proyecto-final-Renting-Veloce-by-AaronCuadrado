@@ -20,10 +20,6 @@ app = Flask(__name__)
 
 CORS(app, supports_credentials=True)
 
-@app.route("/")
-def hello():
-    return "¡Hola, Render!"
-
 # Configuración de la base de datos 
 db_url = os.getenv("DATABASE_URL")
 if db_url is not None:
