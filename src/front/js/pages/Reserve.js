@@ -43,7 +43,7 @@ export const Reserve = () => {
         setLoading(true);
         try {
             const response = await fetch(
-                "https://proyecto-final-renting-veloce-by.onrender.com/api/reserve-vehicle",
+                "${BACKEND_URL}api/reserve-vehicle",
                 {
                     method: "POST",
                     headers: {

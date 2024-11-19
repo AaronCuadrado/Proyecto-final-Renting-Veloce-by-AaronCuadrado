@@ -16,7 +16,7 @@ export const AdminManageVehicles = () => {
     
     const fetchVehicles = async () => {
         try {
-            const response = await fetch("https://proyecto-final-renting-veloce-by.onrender.com/api/vehicles", {
+            const response = await fetch("${BACKEND_URL}api/vehicles", {
                 method: "GET",
                 credentials: "include",
             });
@@ -41,7 +41,7 @@ export const AdminManageVehicles = () => {
     
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`https://proyecto-final-renting-veloce-by.onrender.com/api/vehicles/${id}`, {
+            const response = await fetch(`${BACKEND_URL}api/vehicles/${id}`, {
                 method: "DELETE",
                 credentials: "include",
             });
@@ -68,7 +68,7 @@ export const AdminManageVehicles = () => {
     const handleSubmitEdit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://proyecto-final-renting-veloce-by.onrender.com/api/vehicles/${editVehicle.id}`, {
+            const response = await fetch(`${BACKEND_URL}api/vehicles/${editVehicle.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

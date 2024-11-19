@@ -8,7 +8,7 @@ export const ForgotPassword = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("https://proyecto-final-renting-veloce-by.onrender.com/api/forgot-password", {
+            const response = await fetch("${BACKEND_URL}api/forgot-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),

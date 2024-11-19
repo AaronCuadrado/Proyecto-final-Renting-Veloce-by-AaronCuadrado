@@ -11,7 +11,7 @@ export const NavbarAfterLogin = () => {
     const handleLogout = async () => {
         try {
             const response = await fetch(
-                "https://proyecto-final-renting-veloce-by.onrender.com/api/logout",
+                "${BACKEND_URL}api/logout",
                 {
                     method: "POST",
                     credentials: "include",

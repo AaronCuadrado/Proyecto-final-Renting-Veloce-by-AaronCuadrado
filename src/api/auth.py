@@ -143,7 +143,7 @@ def forgot_password():
     user.generate_reset_token()
     db.session.commit()
 
-    reset_url = f"https://proyecto-final-renting-veloce-by-54rh.onrender.com/reset-password/{user.reset_token}"
+    reset_url = f"https://veloce-rent.onrender.com/reset-password/{user.reset_token}"
     
     msg = Message('Solicitud de restablecimiento de contraseña',
                   sender='aaroncuadradotoral@gmail.com',
