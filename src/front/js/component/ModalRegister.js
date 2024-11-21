@@ -40,7 +40,7 @@ export const ModalRegister = ({ onClose }) => {
 
         try {
             // Realizar la solicitud al backend
-            const response = await fetch("${BACKEND_URL}api/register", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

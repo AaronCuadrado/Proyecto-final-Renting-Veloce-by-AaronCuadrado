@@ -15,7 +15,7 @@ export const Profile = () => {
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch("${BACKEND_URL}api/users/1", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/1`, {
                 method: "GET",
                 credentials: "include",
             });
@@ -35,7 +35,7 @@ export const Profile = () => {
 
     const handleUsernameChange = async () => {
         try {
-            const response = await fetch("${BACKEND_URL}api/users/1", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/1`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const Profile = () => {
 
     const handlePasswordChange = async () => {
         try {
-            const response = await fetch("${BACKEND_URL}api/users/1/update-password", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/1/update-password`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -14,7 +14,7 @@ export const Vehicles = () => {
     useEffect(() => {
         const fetchVehicles = async () => {
             try {
-                const response = await fetch("${BACKEND_URL}api/vehicles", {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/vehicles`, {
                     method: "GET",
                 });
                 if (!response.ok) {

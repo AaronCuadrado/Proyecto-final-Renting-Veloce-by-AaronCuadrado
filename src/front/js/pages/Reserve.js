@@ -43,7 +43,7 @@ export const Reserve = () => {
         setLoading(true);
         try {
             const response = await fetch(
-                "${BACKEND_URL}api/reserve-vehicle",
+                `${process.env.REACT_APP_BACKEND_URL}/api/reserve-vehicle`,
                 {
                     method: "POST",
                     headers: {

@@ -23,7 +23,7 @@ export const AdminAddVehicle = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("${BACKEND_URL}api/admin/vehicles", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/vehicles`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

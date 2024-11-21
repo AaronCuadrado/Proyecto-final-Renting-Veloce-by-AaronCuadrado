@@ -11,7 +11,7 @@ export const NavbarAfterLogin = () => {
     const handleLogout = async () => {
         try {
             const response = await fetch(
-                "${BACKEND_URL}api/logout",
+                `${process.env.REACT_APP_BACKEND_URL}/api/logout`,
                 {
                     method: "POST",
                     credentials: "include",
