@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_session import Session
 from flask_migrate import Migrate
 from api.models import db
@@ -13,11 +13,17 @@ from api.reservations import reservations
 from api.auth import auth
 from flask_cors import CORS
 from flask_mail import Mail
+from api.utils import APIException, generate_sitemap
+
+ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
+static_file_dir = os.path.join(os.path.dirname(
+    os.path.realpath(__file__)), '../public/')
 
 
 
 app = Flask(__name__)
 
+app.url_map.strict_slashes = False
 CORS(app, supports_credentials=True)
 
 # Configuración de la base de datos 
@@ -47,11 +53,24 @@ app.register_blueprint(webhook, url_prefix='/api')
 app.register_blueprint(auth, url_prefix='/api')
 app.register_blueprint(transaction, url_prefix='/api')
 
+@app.errorhandler(APIException)
+def handle_invalid_usage(error):
+    return jsonify(error.to_dict()), error.status_code
 
-# Ruta principal
 @app.route('/')
-def home():
-    return "Bienvenido al sistema de renting de vehiculos"
+def sitemap():
+    if ENV == "development":
+        return generate_sitemap(app)
+    return send_from_directory(static_file_dir, 'index.html')
+
+# any other endpoint will try to serve it like a static file
+@app.route('/<path:path>', methods=['GET'])
+def serve_any_other_file(path):
+    if not os.path.isfile(os.path.join(static_file_dir, path)):
+        path = 'index.html'
+    response = send_from_directory(static_file_dir, path)
+    response.cache_control.max_age = 0  # avoid cache memory
+    return response
 
 # Configurar la clave secreta y el tipo de sesión
 app.config['SECRET_KEY'] = 'ClaveTopSecret'  # Clave secreta 
